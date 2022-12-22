@@ -10,3 +10,6 @@ Studienfach <- sample(x = c("Statistik", "Data Science", "Mathe", "Informatik"),
 
 InteresseAnMathematik <- sample(c(1:7), size = 100, replace = TRUE, 
                                 prob = c(5, 5, 10, 15, 15, 25, 25))
+
+InteresseAnProgrammieren <- sample(x = 1:7, size = 100, replace = TRUE,
+                                  prob = c(10, 10, 5, 5, 15, 15, 40))
