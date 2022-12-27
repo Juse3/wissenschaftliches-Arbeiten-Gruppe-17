@@ -3,7 +3,7 @@
 ################################################################################
 
 set.seed(17)
-## seed setzen um Ergebnisse reproduzieren zu koennen
+## Seed setzen, um Ergebnisse reproduzieren zu koennen
 
 ID <- 1:100
 ## ID erzeugen. Es gibt 100 Personen, deswegen die ID von 1 bis 100
@@ -11,12 +11,12 @@ ID <- 1:100
 Alter <- floor(rnorm(n = 100, mean = 25, sd = 2))
 ## Das Alter simuliert aus einer Normalverteilung mit Erwartungswert 25 und
 ## einer Standardabweichung von 2.
-## Die Zahlen werden abgerundet, damit das Alter in ganze Zahlen angegeben wird.
+## Die Zahlen werden abgerundet, damit das Alter in ganzen Zahlen angegeben wird.
 
 Studienfach <- sample(x = c("Statistik", "Data Science", "Mathe", "Informatik"), 
                       size = 100, replace = TRUE, prob = c(30, 30, 15, 25))
-## Studienfach, zufällig gezogen für alle Personen aus einer Auswahl von
-## „Statistik“, „Data Science“, „Mathe“ und „Informatik“, wobei die Fächer
+## Studienfach, zufaellig gezogen fuer alle Personen aus einer Auswahl von
+## „Statistik“, „Data Science“, „Mathe“ und „Informatik“, wobei die Faecher
 ## „Statistik“ und „Data Science“ mit gleicher Wahrscheinlichkeit von 30 Prozent
 ## studiert werden sollen, „Informatik“ mit einer etwas geringeren Wahrschein-
 ## lichkeit von 25 Prozent und „Mathe“ mit der geringsten Wahrscheinlichkeit von
@@ -31,7 +31,7 @@ InteresseAnMathematik <- sample(c(1:7), size = 100, replace = TRUE,
 ## abbildet.
 ## Die Wahrscheinlichkeiten fuer das Auftreten der verschiedenen Werte sind an 
 ## den Studiengaengen orientiert. Insgesamt ist allerdings in allen Studiengaengen 
-## Mathematik vertreten, sodass der Unterschied nicht so gross sein wird, 
+## Mathematik vertreten, sodass der Unterschied nicht so gross sein wird
 ## zwischen den verschiedenen Studiengaengen. 
 
 InteresseAnProgrammieren <- as.numeric(as.character(
@@ -48,20 +48,20 @@ InteresseAnProgrammieren <- as.numeric(as.character(
 
 MatheLk <- function(Studienfach, InteresseAnMathematik){
   i <- 1    # Zaehlvariabel
-  MathematikLK <- character(length(Studienfach)) #Zielvektor erzeugen (speicherplatz sparen)
-  while (i < length(Studienfach) + 1){    # Schleife fuer alle 100 Personen 
+  MathematikLK <- character(length(Studienfach)) # Zielvektor erzeugen (speicherplatz sparen)
+  while (i < length(Studienfach) + 1){           # Schleife fuer alle 100 Personen 
     if (Studienfach[i] == "Mathematik" | Studienfach[i] == "Statistik" & 
-        InteresseAnMathematik[i] >= 4){   # Bedingung 
+        InteresseAnMathematik[i] >= 4){          # Bedingung 
       MathematikLK[i] <- "Ja"
     } if ((Studienfach[i] == "Informatik" | Studienfach[i] == "Data Science") & 
-          InteresseAnMathematik[i] >= 3){ # Bedingung
+          InteresseAnMathematik[i] >= 3){        # Bedingung
       MathematikLK[i] <- "Ja" 
     } else{    #Alternative
       MathematikLK[i] <- "Nein"
     }
     i <- i + 1
   }
-  return(MathematikLK)  # finaler Vektor
+  return(MathematikLK)                           # finaler Vektor
 }
 ## Mathe-LK (ja/nein), eine dichotome Variable, die kodiert, ob jemand in der
 ## Schule Mathe-LK hatte oder nicht; hierbei besteht ein Zusammenhang zum 
@@ -76,7 +76,7 @@ MatheLK <- MatheLk(Studienfach, InteresseAnMathematik)
 
 daten <- data.frame(ID, Alter, Studienfach, InteresseAnMathematik, 
                     InteresseAnProgrammieren, MatheLK)
-## gesammelte Variablen werden in einen Data Frame zusammengefuehrt. 
+## Gesammelte Variablen werden in einen Data Frame zusammengefuehrt. 
 
 
 ################################################################################
