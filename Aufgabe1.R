@@ -50,10 +50,11 @@ MatheLk <- function(Studienfach, InteresseAnMathematik){
   i <- 1    # Zaehlvariabel
   MathematikLK <- character(length(Studienfach)) # Zielvektor erzeugen (speicherplatz sparen)
   while (i < length(Studienfach) + 1){           # Schleife fuer alle 100 Personen 
-    if (Studienfach[i] == "Mathematik" | Studienfach[i] == "Statistik" & 
+    if ((Studienfach[i] == "Mathematik" | Studienfach[i] == "Statistik") & 
         InteresseAnMathematik[i] >= 4){          # Bedingung 
       MathematikLK[i] <- "Ja"
-    } if ((Studienfach[i] == "Informatik" | Studienfach[i] == "Data Science") & 
+    } 
+    if ((Studienfach[i] == "Informatik" | Studienfach[i] == "Data Science") & 
           InteresseAnMathematik[i] >= 3){        # Bedingung
       MathematikLK[i] <- "Ja" 
     } else{    #Alternative
