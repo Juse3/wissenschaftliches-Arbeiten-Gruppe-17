@@ -27,11 +27,10 @@ InteresseAnMathematik <- sample(c(1:7), size = 100, replace = TRUE,
 ## Interesse an Mathematik, wobei hier kein direkter Zusammenhang zwischen 
 ## Studienfach und dem Interesse besteht.
 ## Die Variable nimmt Werte ∈ {1,2,3,4,5,6,7} an, wobei 1 = sehr geringes 
-## Interesse, und 7 = sehr hohes Interesse abbildet, und 7 = sehr hohes Interesse 
-## abbildet.
+## Interesse und 7 = sehr hohes Interesse abbildet.
 ## Die Wahrscheinlichkeiten fuer das Auftreten der verschiedenen Werte sind an 
 ## den Studiengaengen orientiert. Insgesamt ist allerdings in allen Studiengaengen 
-## Mathematik vertreten, sodass der Unterschied nicht so gross sein wird
+## Mathematik inhaltlich vertreten, sodass der Unterschied nicht so gross sein wird
 ## zwischen den verschiedenen Studiengaengen. 
 
 InteresseAnProgrammieren <- as.numeric(as.character(
