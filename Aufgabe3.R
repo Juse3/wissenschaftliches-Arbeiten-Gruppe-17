@@ -1,11 +1,9 @@
+#Aufgabe 3
 
 #Teil a)
 
-#nicht sicher, ob man mean(), median(),... verwenden darf oder die nochmal selber programmieren soll
-#eventuell anpassen, nach Absprache
-
 #Funktion descr_metric erwartet einen numerischen Vektor als Eingabe
-#Ausgabe: arithmetisches Mittel, Median, Varianz und Standardabweichung der Daten in einer Liste 
+#Ausgabe: arithmetisches Mittel, Median, Varianz, Standardabweichung, Minimum, Maximum und Spannweite der Daten in einer Liste 
 
 descr_metric <- function(vec){
  
@@ -13,12 +11,14 @@ descr_metric <- function(vec){
   median <- median(vec)
   var <- var(vec)
   sd <- sd(vec)
+  min <- min(vec)
+  max <- max(vec)
+  range <- max - min
   
   return(list("mean" = mean, "median" = median, "variance" = var,
-         "standard deviation" = sd))
+         "standard deviation" = sd, "minimum" = min,
+         "maximum" = max, "range" = range))
 }
-
-#eventuell gibt es eine bessere Art das Ergebnis auszugeben, statt einer Liste
 
 #Teil b)
 
