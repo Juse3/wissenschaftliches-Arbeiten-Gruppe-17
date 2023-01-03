@@ -19,3 +19,18 @@ descr_metric <- function(vec){
 }
 
 #eventuell gibt es eine bessere Art das Ergebnis auszugeben, statt einer Liste
+
+#Teil b)
+
+#Funktion descr_cat erwartet einen Vektor, der Daten einer nominal- bzw. ordinalskalierten Variable enthaelt
+#Ausgabe: absolute und relative Haeufigkeitstabelle in einer Liste
+
+descr_cat <- function(vec){
+  
+  abs_haeuf <- table(vec)
+  rel_haeuf <- round(prop.table(table(vec)), 2)
+  
+  return(list("Absolute Haeufigkeiten" = abs_haeuf, "Relative Häufigkeiten" =
+                rel_haeuf))
+
+}
