@@ -17,11 +17,14 @@ descr_metric <- function(vec){
   uq <- as.numeric(quantile(vec, 0.25))
   oq <- as.numeric(quantile(vec, 0.75))
   iq <- oq - uq
+  skewness <- skewness(vec)
+  kurtosis <- kurtosis(vec)
   
-  return(list("mean" = mean, "median" = median, "variance" = var,
-         "standard deviation" = sd, "minimum" = min,
-         "maximum" = max, "range" = range, "unteresQuartil" = uq, 
-         "oberesQuartil" = oq, "Interquartilsabstand" = iq))
+  return(list("mittelwert" = mean, "median" = median, "varianz" = var,
+         "standardabweichung" = sd, "minimum" = min,
+         "maximum" = max, "spannweite" = range, "unteresQuartil" = uq, 
+         "oberesQuartil" = oq, "Interquartilsabstand" = iq, 
+         "schiefe" = skewness, "kurtosis" = kurtosis))
 }
 
 #Teil b)
