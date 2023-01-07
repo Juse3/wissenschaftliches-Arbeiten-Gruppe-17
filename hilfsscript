@@ -1,6 +1,0 @@
-convToLogic <- function(){
-  daten$MathematikLK[daten$MathematikLK=="Nein"]=F
-  daten$MathematikLK[daten$MathematikLK=="Ja"]=T
-  daten$MathematikLK = as.logical(daten$MathematikLK)
-}
-#damit man z.B. einfach die cov berechnet

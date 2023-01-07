@@ -43,3 +43,30 @@ descr_cat <- function(vec){
                 rel_haeuf, "Modus" = modus))
 
 }
+
+
+#d)
+#vecDichtom ist der dichotome Vektor vec der Metrische, key für die Uebergabe, 
+#für die convToLogic
+bivar_dichotom <- function(vec, vecDichotom, key){
+  
+  #Falls der vecDichtom nicht dichotom sein sollte wird hier dieser in einen
+  #konvertiert
+  if(!is.logical(vecDichotom)){
+    vecDichotom <- convToLogic(vecDichotom, key)
+    bivar_dichotom(vec,vecDichotom)
+  }
+  
+  
+  covPears <- cov(vec, vecDichotom)
+  covKend <- cov(vec, vecDichotom, method = "kendall")
+  covSpear <- cov(vec, vecDichotom, method = "spearman")
+  
+  corPears <- cor(vec, vecDichotom)
+  corKend <- cor(vec, vecDichotom, method = "kendall")
+  corSpear <- cor(vec, vecDichotom, method = "spearman")
+  
+  return(list("CovariancePearson" = covPears, "CovarianceKendall" =
+                covKend, "CovarianceSpearman" = covSpear, "CorrelationPearson" = corPears,
+              "CorrelationKendall" = corKend,"CorrelationSpearman" = corSpear))
+}

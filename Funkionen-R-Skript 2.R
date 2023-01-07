@@ -1,10 +1,10 @@
-convToLogic <- function(daten){
-  daten$MatheLK[daten$MatheLK=="Nein"] <- F
-  daten$MatheLK[daten$MatheLK=="Ja"] <- T
-  daten$MatheLK <- as.logical(daten$MatheLK)
+#Bsp : daten$MatheLK = convToLogic(daten$MatheLK,"Ja")
+#"Nein" wird zu False & "Ja" zu True
+convToLogic <- function(vec,key){
+  vec <- vec==key
+  vec
 }
-convToLogic(daten)
-#damit man z.B. einfach die cov berechnet
+#Funktion für dichotome Masszahlen
 
 mode <- function(vec){
   u <- unique(vec)
