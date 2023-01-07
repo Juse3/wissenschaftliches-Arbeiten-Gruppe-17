@@ -3,12 +3,13 @@
 #Teil a)
 
 #Funktion descr_metric erwartet einen numerischen Vektor als Eingabe
-#Ausgabe: arithmetisches Mittel, Median, Varianz, Standardabweichung, Minimum, Maximum, Spannweite, Quartile und Interquartilsabstand der Daten in einer Liste 
+#Ausgabe: arithmetisches Mittel, Median, Modus, Varianz, Standardabweichung, Minimum, Maximum, Spannweite, Quartile und Interquartilsabstand der Daten in einer Liste 
 
 descr_metric <- function(vec){
  
   mean <- mean(vec)
   median <- median(vec)
+  modus <- mode(vec)         #Funktion mode in der anderen Datei
   var <- var(vec)
   sd <- sd(vec)
   min <- min(vec)
@@ -20,11 +21,11 @@ descr_metric <- function(vec){
   skewness <- skewness(vec)
   kurtosis <- kurtosis(vec)
   
-  return(list("mittelwert" = mean, "median" = median, "varianz" = var,
-         "standardabweichung" = sd, "minimum" = min,
-         "maximum" = max, "spannweite" = range, "unteresQuartil" = uq, 
-         "oberesQuartil" = oq, "Interquartilsabstand" = iq, 
-         "schiefe" = skewness, "kurtosis" = kurtosis))
+  return(list("mittelwert" = mean, "median" = median, "modus" = modus, 
+              "varianz" = var, "standardabweichung" = sd, "minimum" = min,
+              "maximum" = max, "spannweite" = range, "unteresQuartil" = uq, 
+              "oberesQuartil" = oq, "Interquartilsabstand" = iq, 
+              "schiefe" = skewness, "kurtosis" = kurtosis))
 }
 
 #Teil b)
