@@ -45,6 +45,18 @@ descr_cat <- function(vec){
 }
 
 
+# Teil c)
+
+# Funktion erwartet zwei kategoriale Vektoren
+# Ausgabe: Kreuztabelle
+
+relat_cat <- function(vec, vec2){
+  
+  table(vec, vec2)
+  
+}
+
+
 #d)
 #vecDichtom ist der dichotome Vektor vec der Metrische, key für die Uebergabe, 
 #für die convToLogic
