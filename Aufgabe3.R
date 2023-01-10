@@ -48,14 +48,18 @@ descr_cat <- function(vec){
 # Teil c)
 
 # Funktion erwartet zwei kategoriale Vektoren
-# Ausgabe: Kreuztabelle
+# Ausgabe: Kreuztabelle, Spalten- und Zeilensummen dieser Tabelle
 
-relat_cat <- function(vec, vec2){
+relat_cat <- function(vec, vec2, name1, name2){
   
-  table(vec, vec2)
+  tab <- table(vec, vec2, dnn = as.list(c(name1, name2)))
+  # mit dem Argument dnn koennen die Namen festgelegt werden
   
+  zeilen <- margin.table(tab, 1)
+  spalten <- margin.table(tab, 2)
+  
+  return(list("Kreuztabelle" = tab, "Zeilensummen" = zeilen, "Spaltensummen" = spalten))
 }
-
 
 #d)
 #vecDichtom ist der dichotome Vektor vec der Metrische, key für die Uebergabe, 
@@ -109,4 +113,10 @@ classify <- function(vec){
     
   }
   return(vec)
+  
+  # Version 2
+  q33 <- quantile(vec, 1/3)
+  q67 <- quantile(vec, 2/3)
+  cut <- cut(vec, breaks = c(-Inf, q33, q67, Inf), labels = c("niedrig", "mittel", "hoch"))
+
 }
