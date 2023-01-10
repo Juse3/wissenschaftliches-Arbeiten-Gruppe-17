@@ -82,3 +82,32 @@ bivar_dichotom <- function(vec, vecDichotom, key){
                 covKend, "CovarianceSpearman" = covSpear, "CorrelationPearson" = corPears,
               "CorrelationKendall" = corKend,"CorrelationSpearman" = corSpear))
 }
+
+#e)
+
+#Funktion classify erwartet einen Vektor mit einer mindestens ordinal-skalierten Variable
+#Ausgabe: Kategorisierung in "niedrig", "mittel", "hoch"
+
+classify <- function(vec){
+  
+  vec <- as.numeric(vec)
+  
+  q25 <- quantile(vec,0.25)
+  q50 <- quantile(vec,0.5)
+  q75 <- quantile(vec,0.75)
+  
+  for(i in 1:length(vec)){
+    
+    if(vec[i] >= q75){
+      vec[i] <- "hoch"
+    }
+    else if(vec[i] >= q50){
+      vec[i] <- "mittel"
+    }
+    else{
+      vec[i] <- "niedrig"
+    }
+    
+  }
+  return(vec)
+}
