@@ -92,7 +92,6 @@ classify <- function(vec){
   
   vec <- as.numeric(vec)
   
-  q25 <- quantile(vec,0.25)
   q50 <- quantile(vec,0.5)
   q75 <- quantile(vec,0.75)
   
