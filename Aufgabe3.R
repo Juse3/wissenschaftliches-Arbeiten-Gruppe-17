@@ -120,3 +120,17 @@ classify <- function(vec){
   cut <- cut(vec, breaks = c(-Inf, q33, q67, Inf), labels = c("niedrig", "mittel", "hoch"))
 
 }
+
+
+# Teil f)
+
+# Funktion erwartet bis zu vier kategoriale Vektoren
+# Ausgabe: bis zu vier Säulendiagramme
+
+visual_cat <- function(vec1, vec2, vec3, vec4){
+  par(mfrow = c(2,2))
+  barplot(table(vec1), ylab = "Absolute Häufigkeit")
+  barplot(table(vec2), ylab = "Absolute Häufigkeit")
+  barplot(table(vec3), ylab = "Absolute Häufigkeit")
+  barplot(table(vec4), ylab = "Absolute Häufigkeit")
+}
