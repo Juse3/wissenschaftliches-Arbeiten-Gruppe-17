@@ -96,29 +96,14 @@ classify <- function(vec){
   
   vec <- as.numeric(vec)
   
-  q50 <- quantile(vec,0.5)
-  q75 <- quantile(vec,0.75)
-  
-  for(i in 1:length(vec)){
-    
-    if(vec[i] >= q75){
-      vec[i] <- "hoch"
-    }
-    else if(vec[i] >= q50){
-      vec[i] <- "mittel"
-    }
-    else{
-      vec[i] <- "niedrig"
-    }
-    
-  }
-  return(vec)
-  
-  # Version 2
   q33 <- quantile(vec, 1/3)
   q67 <- quantile(vec, 2/3)
-  cut <- cut(vec, breaks = c(-Inf, q33, q67, Inf), labels = c("niedrig", "mittel", "hoch"))
-
+  
+  cut <- cut(vec, breaks = c(-Inf, q33, q67, Inf),
+             labels = c("niedrig", "mittel", "hoch"), right = FALSE)
+  
+  return(cut)
+  
 }
 
 
@@ -133,4 +118,19 @@ visual_cat <- function(vec1, vec2, vec3, vec4){
   barplot(table(vec2), ylab = "Absolute Häufigkeit")
   barplot(table(vec3), ylab = "Absolute Häufigkeit")
   barplot(table(vec4), ylab = "Absolute Häufigkeit")
+}
+
+# Funktion grouped_barplot erwartet einen Vektor zur Gruppierung, einen Vektor mit den Daten, die dargestellt werden sollen,
+# einen Wert für die Größe der Legende und einen Titel für die x-Achse
+# Ausgabe: gruppierter Barplot
+
+grouped_barplot <- function(groupVec, vec2, sizeLegend, xlab){
+  
+  table <- table(groupVec, vec2)
+  
+  barplot(table, col = 1:nrow(table), ylab = "Absolute Häufigkeit", xlab = xlab)
+  
+  legend("topleft", legend = row.names(table), pch = 15, col = 1:nrow(table),
+         cex = sizeLegend)
+  
 }
