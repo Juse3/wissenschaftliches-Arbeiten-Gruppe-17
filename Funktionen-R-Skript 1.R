@@ -67,7 +67,12 @@ relat_cat <- function(vec, vec2, name1, name2){
 #d)
 #vecDichtom ist der dichotome Vektor vec der Metrische, key für die Uebergabe, 
 #für die convToLogic
-bivar_dichotom <- function(vec, vecDichotom, key, name1, name2){
+bivar_dichotom <- function(vec, vecDichotom, key, name1 = "name1", name2 = "name2"){
+  
+  tab <- table(vec, vecDichotom, dnn = as.list(c(name1, name2)))
+  
+  zeilen <- margin.table(tab, 1)
+  spalten <- margin.table(tab, 2)
   
   #Falls der vecDichtom nicht dichotom sein sollte wird hier dieser in einen
   #konvertiert
@@ -75,11 +80,6 @@ bivar_dichotom <- function(vec, vecDichotom, key, name1, name2){
     vecDichotom <- convToLogic(vecDichotom, key)
     bivar_dichotom(vec,vecDichotom)
   }
-  
-  tab <- table(vec, vecDichotom, dnn = as.list(c(name1, name2)))
-  
-  zeilen <- margin.table(tab, 1)
-  spalten <- margin.table(tab, 2)
   
   covPears <- cov(vec, vecDichotom)
   covKend <- cov(vec, vecDichotom, method = "kendall")
@@ -89,7 +89,7 @@ bivar_dichotom <- function(vec, vecDichotom, key, name1, name2){
   corKend <- cor(vec, vecDichotom, method = "kendall")
   corSpear <- cor(vec, vecDichotom, method = "spearman")
   
-  return(list("CovariancePearson" = covPears, "CovarianceKendall" =
+  return(list("Kreuztabelle" = tab, "CovariancePearson" = covPears, "CovarianceKendall" =
                 covKend, "CovarianceSpearman" = covSpear, "CorrelationPearson" = corPears,
               "CorrelationKendall" = corKend,"CorrelationSpearman" = corSpear))
 }
