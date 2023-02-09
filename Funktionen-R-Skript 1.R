@@ -152,7 +152,7 @@ grouped_barplot <- function(groupVec, vec2, sizeLegend, xlab){
 # nur zusatz() ausgefuehrt werden muss
 zusatz <- function(alter = daten$Alter, InteresseAnMathematik = daten$InteresseAnMathematik,
                    InteresseAnProgrammieren = daten$InteresseAnProgrammieren,
-                   Studium = daten$Studienfach, LK = daten$MatheLK){
+                   Studienfach = daten$Studienfach, LK = daten$MatheLK){
   layout(matrix(c(1:6), ncol = 3))
   hist(alter, freq = FALSE, main = "Histogramm vom Alter")
   barplot(table(InteresseAnMathematik), main = "Interesse an Mathematik")
