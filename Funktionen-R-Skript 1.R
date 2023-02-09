@@ -3,13 +3,13 @@
 #Teil a)
 
 #Funktion descr_metric erwartet einen numerischen Vektor als Eingabe
-#Ausgabe: arithmetisches Mittel, Median, Modus, Varianz, Standardabweichung, Minimum, Maximum, Spannweite, Quartile und Interquartilsabstand der Daten in einer Liste 
+#Ausgabe: arithmetisches Mittel, Median, Modus, Varianz, Standardabweichung, Minimum, Maximum, Spannweite, Quartile und Interquartilsabstand sowie die Schiefe und Kurtosis der Daten in einer Liste 
 
 descr_metric <- function(vec){
  
   mean <- mean(vec)
   median <- median(vec)
-  modus <- mode(vec)         #Funktion mode in der anderen Datei
+  modus <- mode(vec)         # Funktion mode in der anderen Datei
   var <- var(vec)
   sd <- sd(vec)
   min <- min(vec)
@@ -18,8 +18,8 @@ descr_metric <- function(vec){
   uq <- as.numeric(quantile(vec, 0.25))
   oq <- as.numeric(quantile(vec, 0.75))
   iq <- oq - uq
-  skewness <- skewness(vec)
-  kurtosis <- kurtosis(vec)
+  skewness <- skewness(vec) # Funktion skewness in der anderen Datei
+  kurtosis <- kurtosis(vec) # Funktion kurtosis in der anderen Datei
   
   return(list("mittelwert" = mean, "median" = median, "modus" = modus, 
               "varianz" = var, "standardabweichung" = sd, "minimum" = min,
@@ -36,8 +36,8 @@ descr_metric <- function(vec){
 descr_cat <- function(vec){
   
   abs_haeuf <- table(vec)
-  rel_haeuf <- round(prop.table(table(vec)), 2)
-  modus <- mode(vec)  #Funktion mode in der anderen Datei
+  rel_haeuf <- round(prop.table(table(vec)), 2) # Werte werden auf zwei Nachkommastellen gerundet
+  modus <- mode(vec)  # Funktion mode in der anderen Datei
   
   return(list("Absolute Haeufigkeiten" = abs_haeuf, "Relative Häufigkeiten" =
                 rel_haeuf, "Modus" = modus))
@@ -65,8 +65,11 @@ relat_cat <- function(vec, vec2, name1, name2){
 }
 
 #d)
+
+#Funktion bivar_dichotom erwartet eine metrischen und eine dichotome Variable
 #vecDichtom ist der dichotome Vektor vec der Metrische, key für die Uebergabe, 
 #für die convToLogic
+#Ausgabe: Kreuztabelle, Pearson-, Kendall- und Spearmankovarianz und Pearson-, Kendall- und Spearmankorrelationskoeffizienten in einer Liste
 bivar_dichotom <- function(vec, vecDichotom, key, name1 = "name1", name2 = "name2"){
   
   tab <- table(vec, vecDichotom, dnn = as.list(c(name1, name2)))
@@ -77,7 +80,7 @@ bivar_dichotom <- function(vec, vecDichotom, key, name1 = "name1", name2 = "name
   #Falls der vecDichtom nicht dichotom sein sollte wird hier dieser in einen
   #konvertiert
   if(!is.logical(vecDichotom)){
-    vecDichotom <- convToLogic(vecDichotom, key)
+    vecDichotom <- convToLogic(vecDichotom, key) # Funktion in der anderen Datei
     bivar_dichotom(vec,vecDichotom)
   }
   
@@ -116,7 +119,7 @@ classify <- function(vec){
 
 # Teil f)
 
-# Funktion erwartet bis zu vier kategoriale Vektoren
+# Funktion visual_cat erwartet bis zu vier kategoriale Vektoren
 # Ausgabe: bis zu vier Säulendiagramme
 
 visual_cat <- function(vec1, vec2, vec3, vec4){
@@ -141,3 +144,20 @@ grouped_barplot <- function(groupVec, vec2, sizeLegend, xlab){
          cex = sizeLegend)
   
 }
+
+# weitere Funktionen 
+# die Funktion stellt alle Variablen (ausser ID) in einzelnen Grafiken dar, um 
+# die Verteilung auf einen Blick sehen zu koennen
+# die Eingabe ist fuer unseren Datensatz bereits als default eingestellt, sodass
+# nur zusatz() ausgefuehrt werden muss
+zusatz <- function(alter = daten$Alter, InteresseAnMathematik = daten$InteresseAnMathematik,
+                   InteresseAnProgrammieren = daten$InteresseAnProgrammieren,
+                   Studium = daten$Studienfach, LK = daten$MatheLK){
+  layout(matrix(c(1:6), ncol = 3))
+  hist(alter, freq = FALSE, main = "Histogramm vom Alter")
+  barplot(table(InteresseAnMathematik), main = "Interesse an Mathematik")
+  barplot(table(InteresseAnProgrammieren), main = "Interesse an Programmieren")
+  barplot(table(Studienfach), main = "Studienfach")
+  barplot(table(LK), main = "Mathe-Lk")
+}
+
