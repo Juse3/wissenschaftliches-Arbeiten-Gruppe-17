@@ -49,3 +49,13 @@ descr_metric(daten[daten$Studienfach == "Statistik",5])
 #Es wirkt auch nicht so als würde ein Zusammenhang zwischen Studiengang und Interesse
 #am Programmieren bestehen, da die Informatiker einen deutlich kleineren Mittelwert
 #als zum Beispiel die Mathematiker haben
+
+
+relat_cat(daten$MatheLK,daten$Studienfach,"MatheLK","Studienfach")
+#Es besteht ein Zummmenhang zwischen MatheLK und und dem Studienfach, nur Studenten
+#mit Fach Data Science und Informatik hatten MatheLK
+
+
+bivar_dichotom(daten$Alter,daten$MatheLK,"Ja","Alter","MatheLK")
+#Es besteht kein Zusammenhang zwischen Alter und MatheLK, da nur geringe
+#negative Korrelation bzw. Kovarianz festgestellt werden kann.
