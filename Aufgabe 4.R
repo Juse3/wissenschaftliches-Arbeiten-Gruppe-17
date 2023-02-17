@@ -55,7 +55,7 @@ descr_metric(daten[daten$Studienfach == "Statistik",5])
 #als zum Beispiel die Mathematiker haben
 
 #Visualisierung Interesse an Programmieren, aufgeteilt nach Studiengang
-grouped_barplot(daten$Studienfach, daten$InteresseAnProgrammieren,sizeLegend = 1,
+grouped_barplot(daten$Studienfach, daten$InteresseAnProgrammieren,sizeLegend = 0.533,
                 xlab = "Interesse an Programmieren")
 
 #Ueberblick ueber Variable Studienfach
