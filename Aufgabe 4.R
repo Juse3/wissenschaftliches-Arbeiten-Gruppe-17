@@ -32,6 +32,10 @@ descr_metric(daten[daten$Studienfach == "Statistik",4])
 #Es wirkt nicht so als wuerde ein Zusammenhang zwischen Studiengang und Interesse
 #an Mathematik bestehen, da die Mathematiker den geringsten Mittelwert aufweisen
 
+#Visualisierung Interesse an Mathematik, aufgeteilt nach Studiengang
+grouped_barplot(daten$Studienfach, daten$InteresseAnMathematik,sizeLegend = 1,
+                xlab = "Interesse an Mathematik")
+
 #Interesse an Programmieren, aufgeteilt nach Studiengang
 #Data Science
 descr_metric(daten[daten$Studienfach == "Data Science",5])
@@ -50,6 +54,10 @@ descr_metric(daten[daten$Studienfach == "Statistik",5])
 #am Programmieren bestehen, da die Informatiker einen deutlich kleineren Mittelwert
 #als zum Beispiel die Mathematiker haben
 
+#Visualisierung Interesse an Programmieren, aufgeteilt nach Studiengang
+grouped_barplot(daten$Studienfach, daten$InteresseAnProgrammieren,sizeLegend = 1,
+                xlab = "Interesse an Programmieren")
+
 #Ueberblick ueber Variable Studienfach
 descr_cat(data$Studienfach)
 #Die meisten Studierenden aus dem Datensatz studieren Data Science (32%)
@@ -64,6 +72,10 @@ relat_cat(daten$MatheLK,daten$Studienfach,"MatheLK","Studienfach")
 #Es besteht ein Zummmenhang zwischen MatheLK und und dem Studienfach, nur Studenten
 #mit Fach Data Science und Informatik hatten MatheLK
 
+#Visualisierung Belegung Mathe LK, aufgeteilt nach Studiengang
+grouped_barplot(daten$Studienfach, daten$MatheLK,sizeLegend = 0.7,
+                xlab = "MatheLK")
+
 bivar_dichotom(daten$Alter,daten$MatheLK,"Ja","Alter","MatheLK")
 #Es besteht kein Zusammenhang zwischen Alter und MatheLK, da nur geringe
 #negative Korrelation bzw. Kovarianz festgestellt werden kann.
@@ -77,3 +89,12 @@ bivar_dichotom(daten$InteresseAnMathematik, daten$MatheLK, "Ja",
 #von 3 gibt es immer mindestens so viele Studierende, die im LK waren wie Studierende,
 #die nicht im Mathe-LK waren.
 #Korrelationskoeffizient nach Pearson: 0.3220041
+
+#Quantilbasierte Kategorisierung
+classify(daten$Alter)
+classify(daten$InteresseAnMathematik)
+classify(daten$InteresseAnProgrammieren)
+
+#Visuelle Dartstellung kategorialer Variablen
+visual_cat(daten$Studienfach, daten$MatheLK, daten$InteresseAnMathematik,
+           daten$InteresseAnProgrammieren)
