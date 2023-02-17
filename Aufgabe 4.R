@@ -59,13 +59,13 @@ grouped_barplot(daten$Studienfach, daten$InteresseAnProgrammieren,sizeLegend = 0
                 xlab = "Interesse an Programmieren")
 
 #Ueberblick ueber Variable Studienfach
-descr_cat(data$Studienfach)
+descr_cat(daten$Studienfach)
 #Die meisten Studierenden aus dem Datensatz studieren Data Science (32%)
 #Es folgt Statistik (28%)
 #Informatik(23%), Mathe(17%)
 
 #Ueberblick ueber Variable MatheLK
-descr_cat(data$MatheLK)
+descr_cat(daten$MatheLK)
 #Fast die Haelfte war im MatheLK(45%)
 
 relat_cat(daten$MatheLK,daten$Studienfach,"MatheLK","Studienfach")
