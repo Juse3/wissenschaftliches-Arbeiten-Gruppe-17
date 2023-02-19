@@ -69,7 +69,7 @@ descr_cat(daten$MatheLK)
 #Fast die Haelfte war im MatheLK(45%)
 
 relat_cat(daten$MatheLK,daten$Studienfach,"MatheLK","Studienfach")
-#Es besteht ein Zummmenhang zwischen MatheLK und und dem Studienfach, nur Studenten
+#Es besteht ein Zummmenhang zwischen MatheLK und dem Studienfach, nur Studenten
 #mit Fach Data Science und Informatik hatten MatheLK
 
 #Visualisierung Belegung Mathe LK, aufgeteilt nach Studiengang
