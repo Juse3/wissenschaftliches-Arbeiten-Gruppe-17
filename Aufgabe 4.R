@@ -90,6 +90,16 @@ bivar_dichotom(daten$InteresseAnMathematik, daten$MatheLK, "Ja",
 #die nicht im Mathe-LK waren.
 #Korrelationskoeffizient nach Pearson: 0.3220041
 
+#Zusammenhang zwischen Interesse an Programmieren und Mathe LK
+bivar_dichotom(daten$InteresseAnProgrammieren, daten$MatheLK, "Ja",
+               "Interesse an Programmieren", "MatheLK")
+#Es besteht ein leicht negativer Zusammenhang zwischen MatheLK und Interesse an Programmieren.
+#Leute mit einem sehr hohen Interesse an Mathematik (Interesse = 6 oder 7)
+#waren nicht im MatheLK. Das sind insgesamt 21 Studierende. Bis einem Interesse von 5
+#gibt es immer mindestens so viele Studierende, die im LK waren wie Studierende, die
+#nicht im Mathe-LK waren.
+#Korrelationskoeffizient nach Pearson: -0.3146465
+
 #Quantilbasierte Kategorisierung
 classify(daten$Alter)
 classify(daten$InteresseAnMathematik)
