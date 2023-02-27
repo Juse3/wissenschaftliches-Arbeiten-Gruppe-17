@@ -1,10 +1,9 @@
-Bearbeitung von Aufgabe 1
+Übersicht der Dokumente: 
 
-Zwei Gruppenmitglieder erstellen ein R-Skript (verfügbar auf Ihrem Repository), in welchem Sie einen Datensatz simulieren. Dieser soll Beobachtungen von 100 
-Personen auf 5 Variablen beinhalten, sowie eine ID-Spalte. Die Variablen sollen sein: 
-• (1) Alter, simuliert aus einer Normalverteilung mit Erwartungswert 25 und einer Standardabweichung von 2, 
-• (2) Studienfach, zufällig gezogen für alle Personen aus einer Auswahl von „Statistik“, „Data Science“, „Mathe“ und „Informatik“, wobei die Fächer „Statistik“ und „Data Science“ mit gleicher Wahrscheinlichkeit studiert werden sollen, „Informatik“ mit einer etwas geringeren Wahrscheinlichkeit und „Mathe“ mit der geringsten Wahrscheinlichkeit, 
-• (3) Interesse an Mathematik, wobei hier ein von Ihnen frei zu wählender Zusammenhang mit Studienfach bestehen darf (aber nicht muss); hier können Sie überlegen, welchen Zusammenhang Sie für plausibel halten und entsprechend simulieren; die Variable soll nur Werte ∈ {1,2,3,4,5,6,7} annehmen können (wie Sie dafür sorgen ist Ihnen frei überlassen), wobei 1 = sehr geringes Interesse, und 7 = sehr hohes Interesse abbildet, 
-• (4) Interesse an Programmieren, wobei hier ein von Ihnen frei zu wählender Zusammenhang mit Studienfach bestehen darf (aber nicht muss); hier können Sie überlegen, welchen Zusammenhang Sie für plausibel halten und entsprechend simulieren, die Variable soll nur Werte ∈ {1,2,3,4,5,6,7} annehmen können (wie Sie dafür sorgen ist Ihnen frei überlassen), wobei 1 = sehr geringes Interesse, und 7 = sehr hohes Interesse abbildet,
-• (5) Mathe-LK (ja/nein), eine dichotome Variable, die kodiert, ob jemand in der Schule Mathe-LK hatte oder nicht; hierbei darf (muss aber nicht) ein Zusammenhang Ihrer Wahl mit Studienfach, Interesse an Mathematik und Interesse an Programmieren bestehen.
-• Diejenigen Gruppenmitglieder, die für (1.) zuständig sind, sollen die anderen nicht über die simulierten Zusammenhänge informieren. D.h., die anderen Mitglieder sollen sich dieses in (1.) erstellte Skript nicht angucken bevor Aufgabe (4.) nicht erledigt ist. 
+Aufgabe1: R-Skript, in welchem der Datensatz simuliert wird. 
+daten: csv-Datei des erzeugten Datensatzes.
+Funktionen-R-Skript 1: R-Skript, welches Funktionen zur Analyse (Deskription und Visualisierung) des Datensatzes enthält.
+Funkionen-R-Skript 2: R-Skript, welches Helfer-Funktionen beinhaltet, die nicht selbst zur Analyse der Daten verwendet werden, sondern die nur 
+in Funktionen-Skript 1 Anwendung finden. 
+Aufgabe 4: R-Skript, in welchem die Analyse des Datensatzes mithilfe der in Funktionen-R-Skript 1 erstellten Funktionen ausgeführt wird.
+Aufgabenstellung: pdf-Dokument, welches die Aufgabenstellung enthält.
